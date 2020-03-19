@@ -1,0 +1,23 @@
+{
+  "name": "fun_with_forums",
+  "version": "1.0.0",
+  "description": "This will be an application where users can post discussions to a forum.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siricoa94/fun_with_forums.git"
+  },
+  "author": "Andrew L. Sirico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siricoa94/fun_with_forums/issues"
+  },
+  "homepage": "https://github.com/siricoa94/fun_with_forums#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
