@@ -17,6 +17,7 @@ router.get("/data", function(req, res) {
       res.json({ forum: data });
     });
 });
+
 router.post("/api/forum", function(req, res) {
     forum.create([
         "username", "post"
