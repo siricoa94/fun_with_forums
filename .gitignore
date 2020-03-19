@@ -1,3 +1,4 @@
 node_modules/
 config/connection.js
 public/firebaseInit.js
+public/firebaseAuth.js
