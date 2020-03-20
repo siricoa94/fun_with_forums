@@ -17,7 +17,8 @@ $('#post').on('click', function(event){
 
     let newpost = {
         username: $("#postTitle").val(),
-        post: $("#postBody").val()
+        post: $("#postBody").val(),
+        posttitle: $("#postTitle").val()
     }
     console.log("this is the " + JSON.stringify(newpost));
     $.ajax("/api/forum", {
