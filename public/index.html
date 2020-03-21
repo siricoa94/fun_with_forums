@@ -6,24 +6,29 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <div id="loginContainer">
-        <form id="signInForm">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="passwordInput" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary" id="logIn">Sign In</button>
-            <button type="submit" class="btn btn-primary" id="signUp">Sign Up</button>
-            <button type="submit" class="btn btn-primary" id="logOut">Sign Out</button>
-        </form>
-    </div>
+    <Div id="container">
+        <fieldset id="fieldset">
+            <form id="signInForm"></form>
+                
+                    <legend>User Login</legend>
+                    
+                        <div>
+                            <label for="emailInput">Email</label>
+                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div>
+                            <label for="passwordInput">Password</label>
+                            <input type="password" id="passwordInput" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn" id="logIn">Sign In</button>
+                        <button type="submit" class="btn" id="signUp">Sign Up</button>
+                        <button type="submit" class="btn" id="logOut">Sign Out</button>
+            </form>
+        </fieldset>
+    </Div>
 </body>
 <script type="text/javascript" src="firebaseInit.js"></script>
 <script src="firebaseAuth.js"></script>
