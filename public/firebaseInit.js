@@ -18,7 +18,9 @@ signUp.addEventListener("click", e => {
     var auth = firebase.auth();
     var promise = auth.createUserWithEmailAndPassword(email, password);
     promise
-    .catch(e => console.log(e.message));
+    .catch(e => console.log(e.message)).then(function(){
+        location.href = "forum"
+    });
     let newUser = {
         username: email,
         userpassword: password,
