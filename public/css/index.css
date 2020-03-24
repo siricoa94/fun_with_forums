@@ -1,12 +1,107 @@
-#container{
-    display: flex; justify-content: center;
-    padding-top: 200px;
-    padding-bottom: 200px;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    scroll-behavior: smooth;
 }
-#fieldset{
-    border: 10px solid;
-    border-image:url("https://images.unsplash.com/photo-1573195470692-0b89ffb47361?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80") 10%;
-    padding: 10px;
-    border-image-repeat: round;
-    border-image-width: 10px;
+#welcomeContainer{
+    height: 800px;
+    background-image: url("https://images.unsplash.com/photo-1565935138980-e350afa1d4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: stretch;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+}
+#welcome {
+    background-color: rgba(255, 255, 255, 0.603);
+    border-radius: .25rem;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    margin-top: 150px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.644);
+}
+#welcome > h1{
+    margin: 20px;
+}
+#welcomeParagraph {
+    margin-bottom: 100px;
+}
+#scrollbutton {
+    background-color: rgba(224, 218, 218, 0.637);
+    padding: 5px;
+    border-radius: .25rem;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.644);
+    text-decoration: none;
+    color: black;
+}
+#emailContainer{
+    height: 800px;
+    /* width: 600px; */
+    /* border-top: 2px white solid; */
+    /* border-bottom: 2px white solid; */
+    /* background-color: rgb(255, 255, 255); */
+    justify-content: center;
+    background-position: center;
+    background-size: stretch;
+    background-repeat: no-repeat;
+    background-image: url("https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+}
+#welcomeContainerTwo{
+    height: 250px;
+    background-image: url("https://images.unsplash.com/photo-1565935138980-e350afa1d4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size:center;
+    background-position: bottom;
+    border-image-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+}
+#formContainer{
+    display: flex;
+    /* justify-content: center; */
+
+}
+#formContainerTwo{
+    margin: 100px;
+    /* text-align: center; */
+    width: 400px;
+    height: 200px;
+}
+#emailDiv{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#passwordDiv{
+    margin-top: 5px;
+}
+#label{
+    color: rgba(209, 205, 205, 0.795);
+}
+#emailInput{
+    background-color: rgba(209, 205, 205, 0.795);
+    border-radius: .25rem;
+    padding: 5px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.493);
+}
+#passwordInput{
+    background-color: rgba(209, 205, 205, 0.795);
+    border-radius: .25rem;
+    padding: 5px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.493); 
+}
+.btn {
+    background-color: rgba(224, 218, 218, 0.76);
+    padding: 5px;
+    border-radius: .25rem;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.493);
+}
+#btnDiv{
+    margin-top: 20px;
 }

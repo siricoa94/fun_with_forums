@@ -9,27 +9,39 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <Div id="container">
-        <fieldset id="fieldset">
-            <form id="signInForm"></form>
-                
-                    <legend>User Login</legend>
-                    
-                        <div>
-                            <label for="emailInput">Email</label>
-                            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div>
-                            <label for="passwordInput">Password</label>
-                            <input type="password" id="passwordInput" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn" id="logIn">Sign In</button>
-                        <button type="submit" class="btn" id="signUp">Sign Up</button>
-                        <button type="submit" class="btn" id="logOut">Sign Out</button>
-            </form>
-        </fieldset>
-    </Div>
+<div id="fatherContainer">
+    <div id="welcomeContainer">
+        <div id="welcome">
+           <h1>Welcome</h1>
+           <p id="welcomeParagraph">Please scroll down to log in.</p>
+           <a href="#emailContainer" id="scrollbutton">Click Me for Log In</a>
+        </div>
+    </div>
+    <div id="emailContainer">
+        <div id="formContainer">
+            <div id="formContainerTwo">
+                <label id="label" for="emailInput">Email</label>
+                <div id="emailDiv">
+                    <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <label id="label" for="passwordInput">Password</label>
+                <div id="passwordDiv">
+                    <input type="password" id="passwordInput" placeholder="Password">
+                </div>
+                <div id="btnDiv">
+                    <button type="submit" class="btn" id="logIn">Sign In</button>
+                    <br></br>
+                    <button type="submit" class="btn" id="signUp">Sign Up</button>
+                    <br></br>
+                    <button type="submit" class="btn" id="logOut">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="welcomeContainerTwo">
+    </div> -->
+</div>
 </body>
-<script type="text/javascript" src="firebaseInit.js"></script>
+<script type="text/javascript" src="JavaScript/index.js"></script>
 <script src="firebaseAuth.js"></script>
 </html>
