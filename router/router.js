@@ -7,23 +7,19 @@ let path = require("path");
 let forum = require("../models/forum");
 
 let post = require("../models/post");
-
+// PUBLIC PATHS //// PUBLIC PATHS //// PUBLIC PATHS //// PUBLIC PATHS //// PUBLIC PATHS //
 router.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "public/index.html"));
 });
 router.get("/forum", function(req, res){
     res.sendFile(path.join(__dirname, "../public/forum.html"));
 });
+// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //
 router.get("/data/forum", function(req, res) {
     forum.all(function(data) {
       res.json({ forum: data });
     });
 });
-router.get("/data/post", function(req, res) {
-    post.all(function(data){
-      res.json({post: data});
-    });
-})
 router.post("/api/forum", function(req, res) {
     forum.create([
         "username", "userpassword","userid"
@@ -45,6 +41,21 @@ router.delete("/api/forum/:id", function(req, res) {
         res.status(200).end();
       }
     });
+});
+// POST DATA //// POST DATA //// POST DATA //// POST DATA //// POST DATA //// POST DATA //
+router.get("/data/post", function(req, res) {
+  post.all(function(data){
+    res.json({post: data});
+  });
+})
+router.post("/api/post", function(req, res){
+  post.create([
+    "posttitle","post","userid"
+  ],[
+    req.body.posttitle, req.body.post, req.body.userid
+  ], function(result){
+    res.json({ id: result.insertId });
+  });
 });
 
 module.exports = router;
