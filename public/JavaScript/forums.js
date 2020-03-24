@@ -48,7 +48,8 @@ $('#post').on('click', function(event){
 
     let newpost = {
         post: $("#postBody").val(),
-        posttitle: $("#postTitle").val()
+        posttitle: $("#postTitle").val(),
+        userid: firebase.auth().currentUser.uid
     }
     console.log("this is the " + JSON.stringify(newpost));
     $.ajax("/api/post", {
