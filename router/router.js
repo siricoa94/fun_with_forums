@@ -6,23 +6,29 @@ let path = require("path");
 
 let forum = require("../models/forum");
 
+let post = require("../models/post");
+
 router.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "public/index.html"));
 });
 router.get("/forum", function(req, res){
     res.sendFile(path.join(__dirname, "../public/forum.html"));
 });
-router.get("/data", function(req, res) {
+router.get("/data/forum", function(req, res) {
     forum.all(function(data) {
       res.json({ forum: data });
     });
 });
-
+router.get("/data/post", function(req, res) {
+    post.all(function(data){
+      res.json({post: data});
+    });
+})
 router.post("/api/forum", function(req, res) {
     forum.create([
-        "username", "userpassword","user_id"
+        "username", "userpassword","userid"
     ], [
-        req.body.username, req.body.userpassword, req.body.user_id
+        req.body.username, req.body.userpassword, req.body.userid
     ], function(result) {
         // Send back the ID of the new quote
         res.json({ id: result.insertId });

@@ -16,6 +16,7 @@ signUp.addEventListener("click", e => {
     var email = txtEmail.value;
     var password = txtPassword.value;
     var auth = firebase.auth();
+    // var authUID = firebase.auth.uid;
     var promise = auth.createUserWithEmailAndPassword(email, password);
     promise
     .catch(e => console.log(e.message)).then(function(){
@@ -24,6 +25,7 @@ signUp.addEventListener("click", e => {
     let newUser = {
         username: email,
         userpassword: password,
+        userid: firebase.auth().currentUser.uid
     }
     console.log("this is the " + JSON.stringify(newUser));
     $.ajax("/api/forum", {
