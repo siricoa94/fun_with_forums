@@ -1,3 +1,4 @@
+const results = [];
 $.ajax("/data/forum", {
     type: "GET"
 }).then(function(data) {
@@ -11,11 +12,30 @@ $.ajax("/data/post", {
     console.log(data.post);
     let postList= data.post;
     let length = postList.length;
-
-    for(let i = 0; i < length; i++){
-        let newList = "<li>" + "<h1>"+ postList[i].posttitle+ "</h1>" + "<p>"+ postList[i].post + "</p>"+"</li>"
-        $("#forum").append(newList);
-    }
+    $.ajax("/data/forum", {
+        type: "GET"
+    }).then(function(newData){
+        console.log(newData);
+        console.log(newData.forum);
+        let forumList = newData.forum;
+        console.log("here are the results: "+ JSON.stringify(results));
+        for(let i = 0; i < length; i++){
+            for(let j = 0; j < forumList.length; j++){
+                if(postList[i].userid === forumList[i].userid){
+                    console.log("success " + forumList[i].username);
+                    console.log("double success " + postList[i].posttitle);
+                    $("#forum").append(forumList[i].username +"<br/>"+ postList[i].posttitle);
+                    results.push({
+                        username: forumList[i].username,
+                        posttitle: postList[i].posttitle,
+                        post: postList[i].post
+                    });
+                } else {
+                    (error)
+                }
+            }
+        }
+    });
 });
 $('#post').on('click', function(event){
     console.log('thisworks!');
