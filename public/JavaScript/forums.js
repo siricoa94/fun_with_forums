@@ -1,4 +1,4 @@
-const results = [];
+var logOut = document.getElementById("logOut");
 $.ajax("/data/forum", {
     type: "GET"
 }).then(function(data) {
@@ -18,20 +18,21 @@ $.ajax("/data/post", {
         console.log(newData);
         console.log(newData.forum);
         let forumList = newData.forum;
+        let results = [];
         console.log("here are the results: "+ JSON.stringify(results));
-        for(let i = 0; i < length; i++){
-            for(let j = 0; j < forumList.length; j++){
-                if(postList[i].userid === forumList[i].userid){
-                    console.log("success " + forumList[i].username);
+        for(let j = 0; j < forumList.length; j++){
+            $("#forum").append("<h2>" + forumList[j].username + "</h2>");
+            results.push({
+                username: forumList[j].username,
+            })
+            for(let i = 0; i < length; i++ ){
+                if(postList[i].userid === forumList[j].userid){
+                    // console.log("success " + forumList[i].username);
                     console.log("double success " + postList[i].posttitle);
-                    $("#forum").append(forumList[i].username +"<br/>"+ postList[i].posttitle);
+                    $("#forum").append(postList[i].posttitle +"<br/>" + postList[i].post + "<br>");
                     results.push({
-                        username: forumList[i].username,
-                        posttitle: postList[i].posttitle,
-                        post: postList[i].post
-                    });
-                } else {
-                    (error)
+                        posttitle: forumList[j].username
+                    });   
                 }
             }
         }
@@ -55,4 +56,8 @@ $('#post').on('click', function(event){
         // Reload the page to get the updated list
         location.reload();
       });
+});
+logOut.addEventListener("click", e => {
+    firebase.auth().signOut();
+    location.href = "/"
 });
