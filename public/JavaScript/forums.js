@@ -29,7 +29,7 @@ $.ajax("/data/post", {
                 if(postList[i].userid === forumList[j].userid){
                     // console.log("success " + forumList[i].username);
                     console.log("double success " + postList[i].posttitle);
-                    $("#forum").append(postList[i].posttitle +"<br/>" + postList[i].post + "<br>");
+                    $("#forum").append(postList[i].posttitle +"<br/>" + postList[i].post + "<br/>");
                     results.push({
                         posttitle: forumList[j].username
                     });   
