@@ -1,6 +1,7 @@
 
 var txtEmail = document.getElementById("emailInput");
 var txtPassword = document.getElementById("passwordInput");
+var txtName = document.getElementById("nameInput");
 var logIn = document.getElementById("logIn");
 var logOut = document.getElementById("logOut");
 var signUp = document.getElementById("signUp");
@@ -14,15 +15,17 @@ $.ajax("/data/forum", {
 
 signUp.addEventListener("click", e => {
     e.preventDefault();
-    var email = txtEmail.value;
+    var username = txtName.value;
     var password = txtPassword.value;
+    var email = txtEmail.value;
     var auth = firebase.auth();
     var promise = auth.createUserWithEmailAndPassword(email, password);
     promise
     .catch(e => console.log(e.message)).then(function(){
         let newUser = {
-            username: email,
+            username: username,
             userpassword: password,
+            useremail: email,
             userid: firebase.auth().currentUser.uid
         }
         console.log("this is the " + JSON.stringify(newUser));

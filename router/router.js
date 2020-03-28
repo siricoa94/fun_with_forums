@@ -22,9 +22,9 @@ router.get("/data/forum", function(req, res) {
 });
 router.post("/api/forum", function(req, res) {
     forum.create([
-        "username", "userpassword","userid"
+        "username", "userpassword","useremail","userid"
     ], [
-        req.body.username, req.body.userpassword, req.body.userid
+        req.body.username, req.body.userpassword, req.body.useremail, req.body.userid
     ], function(result) {
         // Send back the ID of the new quote
         res.json({ id: result.insertId });

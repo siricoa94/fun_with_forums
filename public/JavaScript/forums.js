@@ -21,15 +21,16 @@ $.ajax("/data/post", {
         let results = [];
         console.log("here are the results: "+ JSON.stringify(results));
         for(let j = 0; j < forumList.length; j++){
-            $("#forum").append("<h2>" + forumList[j].username + "</h2>");
+            
             results.push({
                 username: forumList[j].username,
             })
             for(let i = 0; i < length; i++ ){
                 if(postList[i].userid === forumList[j].userid){
-                    // console.log("success " + forumList[i].username);
-                    console.log("double success " + postList[i].posttitle);
-                    $("#forum").append(postList[i].posttitle +"<br/>" + postList[i].post + "<br/>");
+                    $("#cardContainer").append("<div class='postInfoContainer' id='postInfoContainer"+[i]+"'"+"</div>");
+                    $("#postInfoContainer"+ [i]).append("<div class='postInfoContainerInner' id='postInfoContainerInner"+[i]+"'"+"</div>");
+                    $("#postInfoContainerInner"+[i]+"").append("<h2 class='postCardTitle'>" + forumList[j].username + "</h2>");
+                    $("#postInfoContainerInner"+[i]+"").append("<h4>"+ postList[i].posttitle + "</h4>"+"<br/>" + postList[i].post + "<br/>");
                     results.push({
                         posttitle: forumList[j].username
                     });   
