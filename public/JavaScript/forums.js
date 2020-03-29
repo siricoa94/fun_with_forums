@@ -39,7 +39,7 @@ $.ajax("/data/post", {
         }
     });
 });
-$('#post').on('click', function(event){
+$('#submitPostBtn').on('click', function(event){
     console.log('thisworks!');
     event.preventDefault();
 
@@ -58,10 +58,10 @@ $('#post').on('click', function(event){
         location.reload();
       });
 });
-logOut.addEventListener("click", e => {
-    firebase.auth().signOut();
-    location.href = "/"
-});
+// logOut.addEventListener("click", e => {
+//     firebase.auth().signOut();
+//     location.href = "/"
+// });
 $(document).on('click', "#deletePostBtn", function(event){
     let id = $(this).data("id");
     console.log("this works" + id);

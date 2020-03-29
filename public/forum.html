@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="css/forum.css">
 </head>
 <body>
-    <nav id="nav"><button type="submit" class="btn" id="logOut">Sign Out</button></nav>
+    <!-- <nav id="nav"><button type="submit" class="btn" id="logOut">Sign Out</button></nav> -->
     <div id="fatherdiv">
         <div id="formEntryContainer">
             <div id="formEntryField">
                 <div>
-                    <input type="text" id="postTitle" placeholder="Please Add A Title To Your Post">
+                    <input type="text" id="postTitle" placeholder="Please Add A Title To Your Post" maxlength="10">
                 </div>
                 <div>
                     <textarea type="text" id="postBody" class="post" placeholder="Please Enter Content To Your Post" maxlength="500"></textarea>
                 </div>
+                <div>
+                    <button id="submitPostBtn">Submit Post</button>
+                </div>
             </div>
         </div>
-        <button id="post">Submit Post</button>
     </div>
     <div>
         <div id="forum">
