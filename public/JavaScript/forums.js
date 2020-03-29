@@ -30,7 +30,7 @@ $.ajax("/data/post", {
                     $("#cardContainer").append("<div class='postInfoContainer' id='postInfoContainer"+[i]+"'"+"</div>");
                     $("#postInfoContainer"+ [i]).append("<div class='postInfoContainerInner' id='postInfoContainerInner"+[i]+"'"+"</div>");
                     $("#postInfoContainerInner"+[i]+"").append("<h2 class='postCardTitle'>" + forumList[j].username + "</h2>");
-                    $("#postInfoContainerInner"+[i]+"").append("<h4>"+ postList[i].posttitle + "</h4>"+"<br/>" + postList[i].post + "<br/>");
+                    $("#postInfoContainerInner"+[i]+"").append("<h4>"+ postList[i].posttitle + "</h4>"+"<h5 class='postedPost'>" + postList[i].post + "</h5>" + "<button id='editPostBtn'>Edit Post</button>" + "<button id='deletePostBtn' data-id='"+postList[i].id+"'>Delete Post</button>");
                     results.push({
                         posttitle: forumList[j].username
                     });   
@@ -61,4 +61,14 @@ $('#post').on('click', function(event){
 logOut.addEventListener("click", e => {
     firebase.auth().signOut();
     location.href = "/"
+});
+$(document).on('click', "#deletePostBtn", function(event){
+    let id = $(this).data("id");
+    console.log("this works" + id);
+    $.ajax("/api/post/" + id, {
+        type: "DELETE"
+    }).then(function(){
+        console.log("deleted post: " + id);
+        location.reload();
+    });
 });

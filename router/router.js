@@ -30,18 +30,6 @@ router.post("/api/forum", function(req, res) {
         res.json({ id: result.insertId });
     });
 });
-router.delete("/api/forum/:id", function(req, res) {
-    let condition = "id = " + req.params.id;
-  
-    forum.delete(condition, function(result) {
-      if (result.affectedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
-    });
-});
 // POST DATA //// POST DATA //// POST DATA //// POST DATA //// POST DATA //// POST DATA //
 router.get("/data/post", function(req, res) {
   post.all(function(data){
@@ -55,6 +43,18 @@ router.post("/api/post", function(req, res){
     req.body.posttitle, req.body.post, req.body.userid
   ], function(result){
     res.json({ id: result.insertId });
+  });
+});
+router.delete("/api/post/:id", function(req, res) {
+  let condition = "id = " + req.params.id;
+
+  post.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
   });
 });
 
