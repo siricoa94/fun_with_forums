@@ -1,4 +1,5 @@
 var logOut = document.getElementById("logOut");
+var editBtn = document.getElementById("#editPostBtn");
 $.ajax("/data/forum", {
     type: "GET"
 }).then(function(data) {
@@ -30,7 +31,7 @@ $.ajax("/data/post", {
                     $("#cardContainer").append("<div class='postInfoContainer' id='postInfoContainer"+[i]+"'"+"</div>");
                     $("#postInfoContainer"+ [i]).append("<div class='postInfoContainerInner' id='postInfoContainerInner"+[i]+"'"+"</div>");
                     $("#postInfoContainerInner"+[i]+"").append("<h2 class='postCardTitle'>" + forumList[j].username + "</h2>");
-                    $("#postInfoContainerInner"+[i]+"").append("<h4>"+ postList[i].posttitle + "</h4>"+"<h5 class='postedPost'>" + postList[i].post + "</h5>" + "<button id='editPostBtn'>Edit Post</button>" + "<button id='deletePostBtn' data-id='"+postList[i].id+"'>Delete Post</button>");
+                    $("#postInfoContainerInner"+[i]+"").append("<h4>"+ postList[i].posttitle + "</h4>"+"<h5 class='postedPost'>" + postList[i].post + "</h5>" + "<button id='editPostBtn' data-id='"+postList[i].id+"'>Edit Post</button>" + "<button id='deletePostBtn' data-id='"+postList[i].id+"'>Delete Post</button>");
                     results.push({
                         posttitle: forumList[j].username
                     });   
@@ -72,3 +73,33 @@ $(document).on('click', "#deletePostBtn", function(event){
         location.reload();
     });
 });
+$(document).on('click', "#editPostBtn", function(event){
+    event.preventDefault();
+    console.log("edit button works!");
+    let id = $(this).data("id");
+    console.log(id + " Hey man I work");
+    // location.href = "#fatherdiv";
+    // displayDiv();
+    let newpost = {
+        post: $("#postBodyEdit").val(),
+        posttitle: $("#postTitleEdit").val(),
+    }
+    console.log("this is the " + JSON.stringify(newpost));
+    $.ajax("api/post/" + id, {
+        type: "PUT",
+        data: newpost
+    }).then(function(){
+        console.log("updated post: " + id);
+        location.reload();
+    });
+});
+
+
+function displayDiv(){
+    let editDiv = document.getElementById("submitDiv");
+    if(editDiv.style.display ==="none") {
+        editDiv.style.display = "block";
+    } else {
+        editDiv.style.display = "none";
+    }
+}

@@ -6,6 +6,11 @@ let post = {
       cb(res);
     });
   },
+  one: function(condition, cb) {
+    orm.one("warcraftpost", condition, function(res){
+      cb(res);
+    });
+  },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
     orm.create("warcraftpost", cols, vals, function(res) {

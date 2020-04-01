@@ -14,6 +14,9 @@ router.get("/", function(req, res) {
 router.get("/forum", function(req, res){
     res.sendFile(path.join(__dirname, "../public/forum.html"));
 });
+router.get("/edit", function(req, res){
+  res.sendFile(path.join(__dirname, "../public/edit.html"));
+});
 // FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //
 router.get("/data/forum", function(req, res) {
     forum.all(function(data) {
@@ -55,6 +58,23 @@ router.delete("/api/post/:id", function(req, res) {
     } else {
       res.status(200).end();
     }
+  });
+});
+router.put("/api/post/:id", function(req, res){
+  let condition = "id=" + req.params.id;
+
+  post.update(condition, function(result){
+    if (result.affectedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+router.get("/data/post/:id", function(req, res) {
+  let condition = "id = " + req.params.id;
+  post.one(condition, function(data){
+    res.json({post: data});
   });
 });
 

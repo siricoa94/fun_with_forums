@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="css/forum.css">
 </head>
 <body>
-    <!-- <nav id="nav"><button type="submit" class="btn" id="logOut">Sign Out</button></nav> -->
-    <div id="fatherdiv">
+    
+    <div>
         <div id="formEntryContainer">
             <div id="formEntryField">
                 <div>
-                    <input type="text" id="postTitle" placeholder="Please Add A Title To Your Post" maxlength="10">
+                    <input type="text" id="postTitle" placeholder="Please Add A Title To Your Post" maxlength="30">
                 </div>
                 <div>
                     <textarea type="text" id="postBody" class="post" placeholder="Please Enter Content To Your Post" maxlength="500"></textarea>
@@ -25,6 +25,22 @@
             </div>
         </div>
     </div>
+    <div id="fatherdiv">
+        <div>
+            <h1>Welcome</h1>
+            <div id="submitDiv">
+                <div>
+                    <input type="text" id="postTitleEdit" placeholder="Please Add A Title To Your Post" maxlength="30">
+                </div>
+                <div>
+                    <textarea type="text" id="postBodyEdit" class="post" placeholder="Please Enter Content To Your Post" maxlength="500"></textarea>
+                </div>
+                <div>
+                    <button id="EditBtn">Submit Post</button>
+                </div>
+
+            </div>
+        </div>
     <div>
         <div id="forum">
             <div id="cardContainer">

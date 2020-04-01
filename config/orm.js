@@ -48,6 +48,15 @@ function printQuestionMarks(num) {
         cb(result);
       });
     },
+    one: function(table, condition, cb) {
+      let queryString = "SELECT * FROM " + table + " WHERE " + condition + ";"
+      connection.query(queryString, function(err, result){
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
+    },
     create: function(table, cols, vals, cb) {
       let queryString = "INSERT INTO " + table;
   
