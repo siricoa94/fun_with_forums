@@ -34,11 +34,21 @@ router.post("/api/forum", function(req, res) {
     });
 });
 // POST DATA //// POST DATA //// POST DATA //// POST DATA //// POST DATA //// POST DATA //
+
+// For retrieving all data from the warcraftpost table
 router.get("/data/post", function(req, res) {
   post.all(function(data){
     res.json({post: data});
   });
-})
+});
+// For retrieving a single post from the warcraftpost table by ID
+router.get("/data/post/:id", function(req, res) {
+  let condition = "id = " + req.params.id;
+  post.one(condition, function(data){
+    res.json({post: data});
+  });
+});
+// For creating a new post and sending it to the warcraft table
 router.post("/api/post", function(req, res){
   post.create([
     "posttitle","post","userid"
@@ -48,6 +58,24 @@ router.post("/api/post", function(req, res){
     res.json({ id: result.insertId });
   });
 });
+// For retrieving a single post from the table by ID, then updating said post
+router.put("/api/post/:id", function(req, res){
+  let condition = "id = " + req.params.id;
+
+  post.update([
+    "post"
+  ],[
+    req.body.post
+  ], function(result){
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+// For retrieving a single post from the table by ID, then deleting said post
 router.delete("/api/post/:id", function(req, res) {
   let condition = "id = " + req.params.id;
 
@@ -58,23 +86,6 @@ router.delete("/api/post/:id", function(req, res) {
     } else {
       res.status(200).end();
     }
-  });
-});
-router.put("/api/post/:id", function(req, res){
-  let condition = "id=" + req.params.id;
-
-  post.update(condition, function(result){
-    if (result.affectedRows == 0) {
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
-});
-router.get("/data/post/:id", function(req, res) {
-  let condition = "id = " + req.params.id;
-  post.one(condition, function(data){
-    res.json({post: data});
   });
 });
 

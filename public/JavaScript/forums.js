@@ -80,12 +80,12 @@ $(document).on('click', "#editPostBtn", function(event){
     console.log(id + " Hey man I work");
     // location.href = "#fatherdiv";
     // displayDiv();
+    location.reload();
     let newpost = {
-        post: $("#postBodyEdit").val(),
-        posttitle: $("#postTitleEdit").val(),
+        post: $("#postBodyEdit").val()
     }
     console.log("this is the " + JSON.stringify(newpost));
-    $.ajax("api/post/" + id, {
+    $.ajax("api/post/:" + id, {
         type: "PUT",
         data: newpost
     }).then(function(){
