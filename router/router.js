@@ -61,12 +61,10 @@ router.post("/api/post", function(req, res){
 // For retrieving a single post from the table by ID, then updating said post
 router.put("/api/post/:id", function(req, res){
   let condition = "id = " + req.params.id;
+  postBody = "post";
 
-  post.update([
-    "post"
-  ],[
-    req.body.post
-  ], function(result){
+
+  post.update(postBody, condition, function(result){
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();

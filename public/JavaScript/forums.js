@@ -83,9 +83,9 @@ $(document).on('click', "#editPostBtn", function(event){
     location.reload();
     let newpost = {
         post: $("#postBodyEdit").val()
-    }
+    };
     console.log("this is the " + JSON.stringify(newpost));
-    $.ajax("api/post/:" + id, {
+    $.ajax("api/post/" + id, {
         type: "PUT",
         data: newpost
     }).then(function(){
