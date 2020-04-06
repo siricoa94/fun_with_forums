@@ -77,31 +77,25 @@ function printQuestionMarks(num) {
         cb(result);
       });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
-    update: function(table, postBody, condition) {
+
+    update: function(table, cols, vals, condition, cb) {
       let queryString = "UPDATE " + table;
       
       queryString = queryString + " SET ";
-      // queryString = queryString + objToSql(objColVals);
-      // queryString += "(";
-      queryString += postBody.toString();
+      queryString += cols.toString();
       queryString += " = ";
-      queryString += "'hello'";
-      // queryString += "VALUES = (";
-      // queryString += vals.toString();
-      // vals.toString();
-      // queryString += ") ";
+      queryString += printQuestionMarks(vals.length);
       queryString = queryString + " WHERE ";
       queryString = queryString + condition;
 
-      console.log("condition +++++++" + postBody);
+      console.log("condition +++++++" + condition);
       console.log("query string " +queryString);
-      connection.query(queryString, function(err, result){
+      connection.query(queryString, vals, function(err, result){
         if (err) {
           throw err;
         }
 
-        (result);
+        cb(result);
       });
     },
     delete: function(table, condition, cb) {

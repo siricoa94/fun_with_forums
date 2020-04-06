@@ -17,8 +17,8 @@ let post = {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("warcraftpost", objColVals, condition, function(res) {
+  update: function(cols, vals, condition, cb) {
+    orm.update("warcraftpost", cols, vals, condition, function(res) {
       cb(res);
     });
   },

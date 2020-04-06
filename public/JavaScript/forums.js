@@ -78,11 +78,15 @@ $(document).on('click', "#editPostBtn", function(event){
     console.log("edit button works!");
     let id = $(this).data("id");
     console.log(id + " Hey man I work");
-    // location.href = "#fatherdiv";
-    // displayDiv();
-    location.reload();
+    $("#fatherdiv").append("<div editPostDiv><textarea id='newPostArea'></textarea><button id='editBtn' data-id='"+ id +"'></button></div>")
+    location.href = "#fatherdiv";
+});
+$(document).on('click', "#editBtn", function(event){
+    let id = $(this).data("id");
+    console.log("new buttons work");
+    console.log("new button id: " + id);
     let newpost = {
-        post: $("#postBodyEdit").val()
+        post: $("#newPostArea").val(),
     };
     console.log("this is the " + JSON.stringify(newpost));
     $.ajax("api/post/" + id, {
@@ -91,9 +95,10 @@ $(document).on('click', "#editPostBtn", function(event){
     }).then(function(){
         console.log("updated post: " + id);
         location.reload();
+        location.href = "#forum";
     });
-});
-
+        
+})
 
 function displayDiv(){
     let editDiv = document.getElementById("submitDiv");
