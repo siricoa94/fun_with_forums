@@ -80,7 +80,7 @@ $(document).on('click', "#editPostBtn", function(event){
     console.log("edit button works!");
     let id = $(this).data("id");
     console.log(id + " Hey man I work");
-    $("#fatherdiv").append("<div editPostDiv><textarea id='newPostArea'></textarea><button id='editBtn' data-id='"+ id +"'></button></div>")
+    $("#fatherdiv").append("<div id='editPostDiv'><textarea id='newPostArea'></textarea></div><div><button id='editBtn' data-id='"+ id +"'>Submit Post</button></div>")
     location.href = "#fatherdiv";
 });
 $(document).on('click', "#editBtn", function(event){
@@ -98,7 +98,6 @@ $(document).on('click', "#editBtn", function(event){
         console.log("updated post: " + id);
         location.href = "#forum";
         location.reload();
-        
     });
         
 })

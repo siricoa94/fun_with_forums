@@ -33,18 +33,6 @@ nav {
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
-#fatherdiv {
-    background-image: url("https://images.unsplash.com/photo-1526554850534-7c78330d5f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    padding: 10px;
-    min-height: 800px;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
 #formEntryContainer{
     background-image: url("https://images.unsplash.com/photo-1526554850534-7c78330d5f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
     background-repeat: no-repeat;
@@ -214,5 +202,53 @@ nav {
 #deletePostBtn:hover{
     cursor: pointer;
     transform: scale(1.15);
+    transition: all 0.3s ease-in-out;
+}
+#fatherdiv {
+    background-image: url("https://images.unsplash.com/photo-1526554850534-7c78330d5f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    padding: 10px;
+    min-height: 800px;
+    background-attachment: fixed;
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+}
+#newPostArea{
+    color: rgb(0, 0, 0);
+    background-image: url("https://cdn.pixabay.com/photo/2013/07/12/14/11/note-147951_1280.png");
+    background-position: center;
+    opacity: 95%;
+    border-radius: .25rem;
+    width: 350px;
+    text-align: center;
+    height: 300px;
+    padding: 20px;
+    margin-top: 100px;
+    border: none;
+    word-wrap: break-word;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.555);
+    resize: none;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 900;
+    font-size: 30px;
+}
+#editBtn {
+    margin-top: 10px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.753);
+    box-shadow: 2px 2px black;
+    font-family: 'Great Vibes', cursive;
+    font-size: large;
+}
+#editBtn:hover {
+    background-color: rgba(194, 194, 194, 0.753);
+    cursor: pointer;
+    transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
