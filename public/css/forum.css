@@ -220,7 +220,6 @@ nav {
     padding: 10px;
     min-height: 800px;
     background-attachment: fixed;
-    /* display: flex; */
     justify-content: center;
     text-align: center;
 }
