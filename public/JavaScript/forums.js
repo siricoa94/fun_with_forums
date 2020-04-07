@@ -56,13 +56,15 @@ $('#submitPostBtn').on('click', function(event){
       }).then(function() {
         console.log("created new post");
         // Reload the page to get the updated list
+        location.href = "#forum";
         location.reload();
+        
       });
 });
-// logOut.addEventListener("click", e => {
-//     firebase.auth().signOut();
-//     location.href = "/"
-// });
+logOut.addEventListener("click", e => {
+    firebase.auth().signOut();
+    location.href = "/"
+});
 $(document).on('click', "#deletePostBtn", function(event){
     let id = $(this).data("id");
     console.log("this works" + id);
@@ -94,8 +96,9 @@ $(document).on('click', "#editBtn", function(event){
         data: newpost
     }).then(function(){
         console.log("updated post: " + id);
-        location.reload();
         location.href = "#forum";
+        location.reload();
+        
     });
         
 })
