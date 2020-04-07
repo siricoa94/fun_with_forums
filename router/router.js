@@ -14,9 +14,6 @@ router.get("/", function(req, res) {
 router.get("/forum", function(req, res){
     res.sendFile(path.join(__dirname, "../public/forum.html"));
 });
-router.get("/edit", function(req, res){
-  res.sendFile(path.join(__dirname, "../public/edit.html"));
-});
 // FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //// FORM DATA //
 router.get("/data/forum", function(req, res) {
     forum.all(function(data) {

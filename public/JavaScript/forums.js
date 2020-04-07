@@ -25,7 +25,7 @@ $.ajax("/data/post", {
             
             results.push({
                 username: forumList[j].username,
-            })
+            });
             for(let i = 0; i < length; i++ ){
                 if(postList[i].userid === forumList[j].userid){
                     $("#cardContainer").append("<div class='postInfoContainer' id='postInfoContainer"+[i]+"'"+"</div>");
@@ -96,12 +96,11 @@ $(document).on('click', "#editBtn", function(event){
         data: newpost
     }).then(function(){
         console.log("updated post: " + id);
-        location.href = "#forum";
-        location.reload();
+        location.href = "/forum";
+        // location.reload();
     });
         
-})
-
+});
 function displayDiv(){
     let editDiv = document.getElementById("submitDiv");
     if(editDiv.style.display ==="none") {
@@ -109,4 +108,4 @@ function displayDiv(){
     } else {
         editDiv.style.display = "none";
     }
-}
+};

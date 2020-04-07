@@ -55,6 +55,7 @@ nav {
 }
 #postTitle{
     color: rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(168, 167, 167);
     width: 350px;
     text-align: center;
     border-radius: .5rem;
@@ -72,6 +73,7 @@ nav {
 }
 #postBody{
     color: rgb(0, 0, 0);
+    text-shadow: 1px 1px  rgb(168, 167, 167);
     background-image: url("https://cdn.pixabay.com/photo/2013/07/12/14/11/note-147951_1280.png");
     background-position: center;
     opacity: 95%;
@@ -91,12 +93,14 @@ nav {
 }
 #postBody::placeholder {
     color: rgb(0, 0, 0);
+    text-shadow: 1px 1px  rgb(168, 167, 167);
     font-family: 'Great Vibes', cursive;
     font-weight: 900;
     font-size: 30px;
 }
 #postTitle::placeholder {
     color: rgb(0, 0, 0);
+    text-shadow: 1px 1px  rgb(168, 167, 167);
     font-family: 'Great Vibes', cursive;
     font-weight: 900;
     font-size: 30px;
@@ -111,6 +115,7 @@ nav {
     box-shadow: 2px 2px black;
     font-family: 'Great Vibes', cursive;
     font-size: large;
+    text-shadow: 1px 1px  rgb(168, 167, 167);
 }
 #submitPostBtn:hover{
     background-color: rgba(194, 194, 194, 0.753);
@@ -156,6 +161,7 @@ nav {
     font-weight: 900;
     font-size: 25px;
     overflow-y: auto;
+    text-shadow: 1px 1px  rgb(168, 167, 167);
 }
 .postInfoContainerInner{
     width: 400px;
@@ -180,6 +186,7 @@ nav {
     font-weight: 900;
     font-size: 20px;
     margin: 5px;
+    text-shadow: 1px 1px  rgb(168, 167, 167);
 
 }
 #editPostBtn:hover{
@@ -197,6 +204,7 @@ nav {
     font-weight: 900;
     font-size: 20px;
     margin: 5px;
+    text-shadow: 1px 1px  rgb(168, 167, 167);
     
 }
 #deletePostBtn:hover{
