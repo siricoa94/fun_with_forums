@@ -26,7 +26,5 @@ There are some issues with this program that will need fixes in future updates
 
 First: eventually, I would like users to not see the "edit" and "delete" button options for other users.
 
-Second: Users can be added to the forum table without being added to firebase if a user enters in invalid credentials for firebase.
-
 # Link to Application
 https://funwithforums.herokuapp.com/
